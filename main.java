@@ -8,11 +8,10 @@
  */
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class main
 {
-    public static void main(String[] args) throws InterruptedException , java.io.IOException
+    public static void Battleship(String[] args) throws InterruptedException , java.io.IOException
     {
         
         //gird[0][x] is x coord. //grid[1][x] is y coord
@@ -65,7 +64,9 @@ public class main
                 System.out.print("\nInput Valid Coordinate: ");
             }
         
-        clearScreen();   
+        clearScreen();
+
+        input.close();
     }
     
     public static void setShipLocations(boolean[][] grid, int[][] shipTracker)
@@ -100,6 +101,8 @@ public class main
             //check to make sure ship isn't diagonal, and ship length is in valid spot
             
         }
+
+        input.close();
     }
 
     public static void clearScreen() throws InterruptedException , java.io.IOException
@@ -205,7 +208,7 @@ public class main
         return(0);
     }
     
-    private static int nextHit = -1, lastDirection = -1, aiMissiles = 0;
+    private static int nextHit = -1, lastDirection = -1;
     //private static boolean prevAttempt;
     
     public static void AI(boolean[] aiHit, boolean[] arr)
