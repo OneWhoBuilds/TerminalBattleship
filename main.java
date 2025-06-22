@@ -13,6 +13,7 @@ public class main
 {
     public static void main(String[] args) throws InterruptedException , java.io.IOException
     {
+        clearScreen();
         
         //gird[0][x] is x coord. //grid[1][x] is y coord
         boolean[][] grid = new boolean[10][10];
