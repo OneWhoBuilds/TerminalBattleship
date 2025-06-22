@@ -4,14 +4,14 @@
  * @description
  *      A battleship clone, Played against the computer
  * @author Aidan Cox
- * @version 3 06/14/2025
+ * @version 5 06/21/2025
  */
 
 import java.util.Scanner;
 
 public class main
 {
-    public static void Battleship(String[] args) throws InterruptedException , java.io.IOException
+    public static void main(String[] args) throws InterruptedException , java.io.IOException
     {
         
         //gird[0][x] is x coord. //grid[1][x] is y coord
