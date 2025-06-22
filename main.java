@@ -72,9 +72,10 @@ public class main
     
     public static void setShipLocations(boolean[][] grid, int[][] shipTracker)
     {
-        int length = 2;
+        int length = 2, j = 0;
         boolean valid = false;
         Scanner input = new Scanner(System.in);
+        String in;
         for(int i = 0; i < 5; i++)  //2 2 space, 1 3 space, 1 4 space, 1 5 space.
         {
             if(i > 0) 
@@ -87,20 +88,51 @@ public class main
             //check to make sure spot isn't taken and there is suitable room for ship of that length in any cardinal direction
             do
             {
-                
-                
-                
-                for(int j = 0;  j < length;j++)//this will check cardinal directions
+                in = input.nextLine().trim().toUpperCase();
+
+                if(in.length() < 4 && in.length() > 1 && Integer.parseInt(in) < 10 && Integer.parseInt(in) > 0)
                 {
-                    
+                    if(Character.isLetter(in.charAt(0)) && Character.isDigit(in.charAt(1)))
+                    {
+                        if(grid[(Integer.parseInt(in) + 1) % 10][in.charAt(0) - 64])
+                        {
+                            System.out.println("Input Valid Coordinate");
+                        }
+                        else
+                        {
+                            //more checks needed, for what should be checked, cuase if the y is 0 then the neg y's shouldn't be checked
+                            while(j < length && !grid[(Integer.parseInt(in) + 1 + j) % 10][in.charAt(0) - 64] && !grid[(Integer.parseInt(in) + 1) % 10][in.charAt(0) - 64 + j]
+                            && !grid[(Integer.parseInt(in) + 1 - j) % 10][in.charAt(0) - 64] && !grid[(Integer.parseInt(in) + 1) % 10][in.charAt(0) - 64 - j])
+                            {
+                                j++;
+                            }
+
+                            if(j == length -1)//all carindals ARE VALID...
+                            {
+                                valid = true;
+                            }
+                        }  
+                    }
+                    else
+                    {
+                        System.out.println("Input Valid Coordinate");
+                    }
                 }
+                else
+                    System.out.println("Input Valid Coordinate");
             }            
             while(!valid);
             
             System.out.print("Select Stern Coordinate: ");
             
             //check to make sure ship isn't diagonal, and ship length is in valid spot
-            
+
+            do
+            {
+
+                
+            }            
+            while(!valid);
         }
 
         input.close();
